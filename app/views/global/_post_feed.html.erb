@@ -1,0 +1,9 @@
+<% @posts.each do |post| %>
+
+  <%= link_to user_path(post.user) do %> 
+    <img class="pic" src="<%= x.user.profile_photo %>" />
+  <% end %>
+
+  <%= post.post_content %>
+
+<% end %>

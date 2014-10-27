@@ -1,0 +1,21 @@
+<form>
+  <label>
+    <input type="text" placeholder="Hai!" id="update">
+  </label>
+</form>
+
+<script>
+  $("#update").keypress(function (e) {
+      if (e.which == 13) {
+    e.preventDefault();
+    text = $('input')[0].value;
+
+    $.post("/posts", {  post: { user_id: <%= current_user.id %>, body: text } })
+    .done(function(data){
+    location.reload();
+})
+    .fail(function(){ console.log("Didn't work") });
+}
+
+  });
+</script>
