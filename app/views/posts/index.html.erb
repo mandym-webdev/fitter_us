@@ -2,7 +2,6 @@ list of all user posts<BR><BR>
 
 <%= render "global/new_post_form" %>
 
-
 <% @posts.each do |post| %>
 
   <%= post.user.name %><BR><BR>
@@ -10,4 +9,3 @@ list of all user posts<BR><BR>
   <%= post.post_content %><BR><BR>
 
 <% end %>
-
