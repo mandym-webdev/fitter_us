@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-# before_action :authenticate_user!
+before_action :authenticate_user!
 
   def index
     # @friend_ids = Follow.where(user_id: current_user.id).select(:friend_id).map(&:firend_id)
@@ -16,11 +16,13 @@ class PostsController < ApplicationController
 
     @posts = Post.includes(:user).all.sort_by &:created_at
     @posts.reverse!
+    commontator_thread_show(@post)
 
   end
 
   def show
     @post = Post.find(params[:id])
+    commontator_thread_show(@post)
   end
 
   def create

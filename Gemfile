@@ -28,6 +28,10 @@ gem 'spring',        group: :development
 
 gem 'devise'
 gem 'foundation-rails'
+gem 'commontator', '~> 4.8.0'
+
+
+
 gem 'faker'
 gem "rails-erd"
 # Use ActiveModel has_secure_password
