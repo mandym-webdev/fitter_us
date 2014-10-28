@@ -14,8 +14,9 @@ class PostsController < ApplicationController
     # @posts = @posts.sort_by &:created_at
     # @posts.reverse!
 
-    @posts = Post.all.sort_by &:created_at
+    @posts = Post.includes(:user).all.sort_by &:created_at
     @posts.reverse!
+
   end
 
   def show

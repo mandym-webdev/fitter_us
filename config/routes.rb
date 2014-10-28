@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :friendships
 
   devise_for :users
-  root to: "home#index"
+  root to: "posts#index"
 
   resources :users 
   resources :posts

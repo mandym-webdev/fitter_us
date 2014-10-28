@@ -5,7 +5,8 @@ list of all user posts<BR><BR>
 
 <% @posts.each do |post| %>
 
-  
+  <%= post.user.name %><BR><BR>
+
   <%= post.post_content %><BR><BR>
 
 <% end %>
