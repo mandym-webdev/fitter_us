@@ -1,6 +1,6 @@
 <form>
   <label>
-    <input type="text" placeholder="Hai!" id="update">
+    <input type="text" placeholder="What are you up to?" id="update">
   </label>
 </form>
 
@@ -10,11 +10,11 @@
     e.preventDefault();
     text = $('input')[0].value;
 
-    $.post("/posts", {  post: { user_id: <%= current_user.id %>, body: text } })
+    $.post("/posts", {  post: { user_id: <%= current_user.id %>, post_content: text } })
     .done(function(data){
     location.reload();
 })
-    .fail(function(){ console.log("Didn't work") });
+    .fail(function(){ console.log("Sorry, didn't work. Please try to resubmit.") });
 }
 
   });

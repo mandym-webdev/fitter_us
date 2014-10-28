@@ -1,5 +1,12 @@
-list of posts, yours and the people you follow
+list of all user posts<BR><BR>
 
-  <%= render "global/new_post_form" %>
+<%= render "global/new_post_form" %>
 
-  <%= render "global/post_feed" %>
+
+<% @posts.each do |post| %>
+
+  
+  <%= post.post_content %><BR><BR>
+
+<% end %>
+

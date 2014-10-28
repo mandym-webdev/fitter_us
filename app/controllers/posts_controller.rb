@@ -1,15 +1,20 @@
-before_action :authenticate_user!
+class PostsController < ApplicationController
+
+# before_action :authenticate_user!
 
   def index
-    @followed_ids = Follow.where(follower_id: current_user.id).select(:followed_id).map(&:followed_id)
+    # @friend_ids = Follow.where(user_id: current_user.id).select(:friend_id).map(&:firend_id)
     
-    @posts = Post.where(user_id: @followed_ids).order(:created_at)
-    @my_posts = Post.where(user_id: current_user.id)
-    @my_posts.each do |x|
-      @posts.push x
-    end
+    # @posts = Post.where(user_id: @friend_ids).order(:created_at)
+    # @my_posts = Post.where(user_id: current_user.id)
+    # @my_posts.each do |x|
+    #   @posts.push x
+    # end
 
-    @posts = @posts.sort_by &:created_at
+    # @posts = @posts.sort_by &:created_at
+    # @posts.reverse!
+
+    @posts = Post.all.sort_by &:created_at
     @posts.reverse!
   end
 
@@ -20,7 +25,7 @@ before_action :authenticate_user!
   def create
     @post = Post.new(post_params)
 
-        if @post.save
+    if @post.save
       render json: @post
     else
       render status: 400, nothing: true
