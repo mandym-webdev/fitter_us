@@ -1,23 +1,90 @@
-<h2>Sign up</h2>
+<div>
+  <h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+<form>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+      <div class="row">
+        <fieldset>
+          <legend>Login Information</legend>
+            <div class="row">
+              <div class="columns large-6 medium-6 small-12">
+                <%= f.label :user_name %><br />
+                <%= f.text_field :name, autofocus: true %>
+              </div> 
+                    
+              <div class="columns large-6 medium-6 small-12">
+                <%= f.label :email %><br />
+                <%= f.email_field :email, autofocus: true %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="columns large-6 medium-6 small-12">
+                <%= f.label :password %> <% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i><% end %><br />
+                <%= f.password_field :password, autocomplete: "off" %>
+              </div> 
+                    
+              <div class="columns large-6 medium-6 small-12">
+                <%= f.label :password_confirmation %><br />
+                <%= f.password_field :password_confirmation, autocomplete: "off" %>
+              </div>
+            </div>
+        </fieldset>
 
-  <div><%= f.label :user_name %><br />
-  <%= f.text_field :name, autofocus: true %></div>  
+        <fieldset>
+          <legend>Profile Information</legend>
+            <div class="row">
+              <%= f.label :address %><br />
+              <%= f.text_field :address_1, autofocus: true %>
+              <p>Please note, only your city, state and country will show.  Adding your street address will only allow us to show better search results.  If you prefer to just enter your city/state/country, that's fine.
+            </div> 
+                    
+            <div class="row">
+              <%= f.label :tell_us_a_bit_about_you %><br />
+              <%= f.text_area :about_me, autofocus: true %>
+            </div>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
+            <div class="row">
+              <%= f.label :what_is_a_typical_workout_like_for_you? %><br />
+              <%= f.text_area :workout_details, autofocus: true %>
+            </div>
 
-  <div><%= f.label :password %> <% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i><% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
+            <div class="row">
+              <%= f.label :what_are_you_looking_for_in_a_fitness_partner? %><br />
+              <%= f.text_area :partner_preferences, autofocus: true %>
+            </div>
 
-  <div><%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+            <div class="row">
+              <div class="columns large-6 medium-6 small-12">
+                <%= f.label :profile_picture %><br />
+                <%= f.text_area :profile_pic, autofocus: true %>
+              </div>
 
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
+              <div class="columns large-6 medium-6 small-12">
+                <p>Please enter the URL to a 300x300 picture of yourself. If you don't have one online, you can upload one at <a href="http://tinypic.com/">TinyPic</a> for free.
+              </div>
+            </div>
+        </fieldset>
 
+
+
+      <div>
+        <%= f.submit "Sign up" %>
+      </div>
+            
+
+
+
+      
+
+
+    <% end %>
+</form>
 <%= render "devise/shared/links" %>
 
 <!-- http://www.pixy.cz/blogg/clanky/css-fieldsetandlabels.html -->
+
+<form>
+  
+</form>
+</div>
