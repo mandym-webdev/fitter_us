@@ -1,7 +1,11 @@
-List of all site users
 
-  <ul>
-    <% @users.each do |user| %>
-      <li><%= link_to user.name, user %> </li>
-    <% end %>
-  </ul>
+
+<div class="members-profile">
+  <h2>All of Our Members</h2>
+  <% @users.each do |user| %>
+    <div class="members-individual">
+      <img class="members-pic" src="<%= user.profile_pic %>" /><br>
+      <%= link_to user.name, user %> <br>
+    </div>
+  <% end %>
+</div>
