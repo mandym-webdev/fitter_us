@@ -14,15 +14,12 @@ before_action :authenticate_user!
     # @posts = @posts.sort_by &:created_at
     # @posts.reverse!
 
-    @posts = Post.includes(:user).all.sort_by &:created_at
-    @posts.reverse!
-    # commontator_thread_show(@post)
+    @posts = Post.includes(:user).all.order(created_at: :desc).page params[:page]
 
   end
 
   def show
     @post = Post.find(params[:id])
-    # commontator_thread_show(@post)
   end
 
   def create

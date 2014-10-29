@@ -29,7 +29,7 @@ gem 'spring',        group: :development
 gem 'devise'
 gem 'foundation-rails'
 gem 'commontator', '~> 4.8.0'
-
+gem 'kaminari'
 
 
 gem 'faker'
