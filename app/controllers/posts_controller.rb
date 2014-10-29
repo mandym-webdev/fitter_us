@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-# before_action :authenticate_user!
+before_action :authenticate_user!
 
   def index
     # @friend_ids = Follow.where(user_id: current_user.id).select(:friend_id).map(&:firend_id)
