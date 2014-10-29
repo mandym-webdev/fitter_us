@@ -16,13 +16,13 @@ before_action :authenticate_user!
 
     @posts = Post.includes(:user).all.sort_by &:created_at
     @posts.reverse!
-    commontator_thread_show(@post)
+    # commontator_thread_show(@post)
 
   end
 
   def show
     @post = Post.find(params[:id])
-    commontator_thread_show(@post)
+    # commontator_thread_show(@post)
   end
 
   def create
