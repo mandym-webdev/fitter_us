@@ -35,7 +35,7 @@ Commontator.configure do |config|
   # Arguments: a user (acts_as_commontator)
   # Returns: the user's name (String)
   # Default: lambda { |user| I18n.t('commontator.anonymous') } (all users are anonymous)
-  config.user_name_proc = lambda { |user| I18n.t('commontator.anonymous') }
+  config.user_name_proc = lambda { |user| user.name }
 
   # user_link_proc
   # Type: Proc
@@ -46,7 +46,7 @@ Commontator.configure do |config|
   # comments will become a hyperlink pointing to this path
   # The main application's routes can be accessed through the app_routes object
   # Default: lambda { |user, app_routes| '' } (no link)
-  config.user_link_proc = lambda { |user, app_routes| '' }
+  config.user_link_proc = lambda { |user, app_routes| "/users/#{user.id}" }
 
   # user_avatar_proc
   # Type: Proc
@@ -64,8 +64,7 @@ Commontator.configure do |config|
   #            view.commontator_gravatar_image_tag(
   #              user, 1, :s => 60, :d => 'mm') }
   config.user_avatar_proc = lambda { |user, view|
-                                     view.commontator_gravatar_image_tag(
-                                       user, 1, :s => 60, :d => 'mm') }
+                                     user.profile_pic }
 
   # user_email_proc
   # Type: Proc
@@ -199,7 +198,7 @@ Commontator.configure do |config|
   #   :m (manual subscriptions only)
   #   :b (both automatic, when commenting, and manual)
   # Default: :n
-  config.thread_subscription = :n
+  config.thread_subscription = :b
 
   # email_from_proc
   # Type: Proc
