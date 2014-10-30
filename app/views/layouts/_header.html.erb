@@ -13,12 +13,28 @@
     <i class="fi-mail"></i>
     <label class="hide-for-small-only">Messages</label>
   </a>
-  <a class="item" href='/users/#{:id}'>
+  <span class="item"><%= link_to user_path(current_user) do %> 
     <i class="fi-torso"></i>
     <label class="hide-for-small-only">Your Profile</label>
-  </a>
-  <a class="item">
+    <% end %>
+  </span>
+  <span class='item'>
+    <% if user_signed_in? %> 
+      <%= link_to destroy_user_session_path, method: :delete %>
+    <% else %>
+      <%= link_to new_user_session_path %>
     <i class="fi-key"></i>
     <label class="hide-for-small-only">Sign In/Out</label>
-  </a>
+    <% end %>
+  </span>
 </div>
+
+
+
+
+
+    
+    
+ 
+      
+    

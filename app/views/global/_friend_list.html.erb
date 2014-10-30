@@ -6,16 +6,20 @@
   <h3>Friends</h3>
   <div>
       <% @user.friends.each do |friend| %>
-      <div class="friends-individual ">
+      <div class="friends-individual "><%= link_to user_path(friend.id) do %>
         <img class="friends-pic" src="<%= friend.profile_pic %>"><br>
-        <%= link_to friend.name, friend %> 
+        <% end %>
         <% if current_user == @user %>
-          <%= link_to "&#10007;".html_safe, friendship_path(:id => friend), :method => :delete %>
+        <%= link_to "Unfriend", friendship_path(:id => friend), :method => :delete %>
         <% end %>
       </div>
     <% end %>
   </div>
 
+
+
+
+<!-- Mobile version -->
 
   <% if current_user == @user %>
     <h3>Friend Requests</h3>

@@ -1,6 +1,6 @@
 .members-pic {
-  height:150px;
-  width:150px;
+  height:9em;
+  width:9em;
   border: solid 1px gray;
 }
 
@@ -19,15 +19,18 @@
 }
 
 .friends-individual {
-  padding: 10px;
+  padding: 0px;
   display: inline-block;
-  margin-bottom: 10px;
-  margin-right: 10px;
+  margin-bottom: 2px;
+  margin-right: 2px;
   text-align: center;
+  
+  font-size: .8em;
 }
 
 .friends-pic {
-  height:100px;
-  width:100px;
+  height:4em;
+  width:4em;
   border: solid 1px gray;
 }
+
