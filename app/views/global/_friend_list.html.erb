@@ -1,28 +1,67 @@
+<br>
 <% unless current_user == @user %>
-        <%= link_to "Add Friend", friendships_path(:friend_id => @user), :method => :post %>
+  <%= link_to "Add Friend", friendships_path(:friend_id => @user), :method => :post %>
+<% end %>
+<div class="hide-for-small-only">
+  <h3>Friends</h3>
+  <div>
+      <% @user.friends.each do |friend| %>
+      <div class="friends-individual ">
+        <img class="friends-pic" src="<%= friend.profile_pic %>"><br>
+        <%= link_to friend.name, friend %> 
+        <% if current_user == @user %>
+          <%= link_to "&#10007;".html_safe, friendship_path(:id => friend), :method => :delete %>
+        <% end %>
+      </div>
     <% end %>
+  </div>
 
-    <h4>Friends</h4>
-    <ul>
-        <% @user.friends.each do |friend| %>
-        <li>
-          <%= friend.name %> 
-          <% if current_user == @user %>
-            <%= link_to '<i class="fi-plus"></i>', friendship_path(:id => friend), :method => :delete %>
-          <% end %>
-        </li>
+
+  <% if current_user == @user %>
+    <h3>Friend Requests</h3>
+    <div>
+        <% @user.requested_friendships.each do |request| %>
+        <div class="friends-individual ">
+          <img class="friends-pic" src="<%= request.profile_pic %>"><br>
+          <%= link_to request.name, friend %>
+          <%= link_to "&#10003;".html_safe, friendship_path(:id => request), :method => "put" %> 
+          <%= link_to "&#10007;".html_safe, friendship_path(:id => request), :method => :delete %>
+        </div>
       <% end %>
-    </ul>
+    </div>
+  <% end %>
+</div>
 
-    <% if current_user == @user %>
-        <h4>Friend Requests</h4>
+<div class="show-for-small-only">
+  <dl class="accordion" data-accordion>
+  <dd class="accordion-navigation">
+    <a href="#panel1">Friends</a>
+      <div id="panel1" class="content active">
+        <!-- <h3>Friends</h3> -->
         <ul>
-            <% @user.requested_friendships.each do |request| %>
-            <li>
-              <%= request.name %> <!-- this was email before I changed it to name -->
-              <%= link_to "&#10003;", friendship_path(:id => request), :method => "put" %> 
-              <%= link_to "&#10007;", friendship_path(:id => request), :method => :delete %>
-            </li>
-          <% end %>
+            <% @user.friends.each do |friend| %>
+              <li><%= link_to friend.name, friend %> 
+                <% if current_user == @user %>
+                  <%= link_to "&#10007;".html_safe, friendship_path(:id => friend), :method => :delete %>
+                <% end %>
+              </li>
+            <% end %>
         </ul>
-    <% end %>
+
+        
+        <% if current_user == @user %>
+          <h3>Friend Requests</h3>
+            <ul>
+              <% @user.requested_friendships.each do |request| %>
+                <li>
+                  <%= request.name %> 
+                  <%= link_to "&#10003;".html_safe, friendship_path(:id => request), :method => "put" %> 
+                  <%= link_to "&#10007;".html_safe, friendship_path(:id => request), :method => :delete %>
+                </li>
+              <% end %>
+            </ul>
+        <% end %>
+      </div>
+    </dd>
+  </dl>
+</div>
