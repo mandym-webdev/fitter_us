@@ -20,7 +20,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'devise'
 gem 'foundation-rails'
 gem 'commontator', '~> 4.8.0'
-
+gem 'kaminari'
 
 gem 'sass-rails', '~> 4.0.3'
 gem 'coffee-rails', '~> 4.0.0'
