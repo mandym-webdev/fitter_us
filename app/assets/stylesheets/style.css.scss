@@ -34,3 +34,20 @@
   border: solid 1px gray;
 }
 
+.post-pic {
+  height:5em;
+  width:5em;
+}
+
+.post-individual {
+  padding-bottom: 1em;
+  padding-top: 1em;
+}
+
+.post-individual:nth-child(2n){
+  background:#E3E6E4;
+}
+
+.post-submit {
+  padding-top:2em;
+}
