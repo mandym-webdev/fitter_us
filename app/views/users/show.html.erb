@@ -9,7 +9,7 @@
       <div class="row"><%= render "global/friend_list" %></div>
     </div>
 
-    <div class="columns large-8 medium-8 small-12">
+    <div class="columns large-8 medium-8 hide-for-small-only">
       <div class="row">
         <h3>About Me</h3>
         <%= @user.about_me %>
@@ -26,6 +26,29 @@
         <!-- <h3>What I've Been Up To</h3> -->
       </div>
     </div>
+
+    <div class="show-for-small-only">
+      <dl class="accordion" data-accordion>
+      <dd class="accordion-navigation">
+        <a href="#panel2">About Me</a>
+          <div id="panel2" class="content active">
+            <%= @user.about_me %>
+          </div>
+        <a href="#panel3">My Typical Workout</a>
+          <div id="panel3" class="content active">  
+            <%= @user.workout_details %>
+          </div>
+        <a href="#panel4">What I'm Looking for in a Workout Partner</a>
+          <div id="panel4" class="content active">
+            <%= @user.partner_preferences %>
+          </div>
+        <div class="row">
+          <!-- <h3>What I've Been Up To</h3> -->
+        </div>
+      </dd>
+      </dl>
+    </div>
+
 
   </div>
  </div>
