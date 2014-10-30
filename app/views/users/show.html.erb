@@ -1,14 +1,31 @@
- <h2><%= @user.name %></h2>
+ <div>
+  
 
- <img src="<%= @user.profile_pic %>"><br><br>
-<%= @user.city %><br><br>
-<%= @user.state %><br><br>
-<%= @user.country %><br><br>
-<%= @user.about_me %><br><br>
-<%= @user.workout_details %><br><br>
-<%= @user.partner_preferences %><br><br>
+  <div class="row">
+    <h2><%= @user.name %></h2><br>
+    <div class="columns large-4 medium-4 small-12">
+      <div class="row"><img src="<%= @user.profile_pic %>"></div>
+      <div class="row"><%= @user.city %>, <%= @user.state %>, <%= @user.country %></div>
+      <div class="row"><%= render "global/friend_list" %></div>
+    </div>
 
-     
-<%= render "global/friend_list" %>
+    <div class="columns large-8 medium-8 small-12">
+      <div class="row">
+        <h3>About Me</h3>
+        <%= @user.about_me %>
+      </div>
+      <div class="row">
+        <h3>My Typical Workout</h3>
+        <%= @user.workout_details %>
+      </div>
+      <div class="row">
+        <h3>What I'm Looking for in a Workout Partner</h3>
+        <%= @user.partner_preferences %>
+      </div>
+      <div class="row">
+        <!-- <h3>What I've Been Up To</h3> -->
+      </div>
+    </div>
 
- 
+  </div>
+ </div>
